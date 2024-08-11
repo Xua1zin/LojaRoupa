@@ -2,6 +2,7 @@ package com.atividade_roupas.atividade_roupas.entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,8 +18,8 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "funcionario")
-@Entity(name = "funcionario")
+@Entity
+@Table(name = "tb_funcionario")
 public class FuncionarioEntity {
 
 	@Id
@@ -27,10 +28,11 @@ public class FuncionarioEntity {
 	private String nome;
 	private String email;
 	private String telefone;
-	private int idade;
+	private Integer idade;
 	private String endereco;
 	private String funcao;
-	
+
+	@JsonIgnore
 	@OneToMany(mappedBy = "funcionario")
-	private List<VendaEntity> vendas;
+	private List<VendaEntity> venda;
 }

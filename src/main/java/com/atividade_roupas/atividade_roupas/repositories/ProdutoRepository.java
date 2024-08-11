@@ -10,6 +10,6 @@ import com.atividade_roupas.atividade_roupas.entities.ProdutoEntity;
 
 @Repository
 public interface ProdutoRepository extends JpaRepository<ProdutoEntity, Long>{
-	@Query(value = "SELECT * FROM produtos ORDER BY valor DESC LIMIT 10", nativeQuery = true)
+	@Query(value = "SELECT * FROM tb_produto ORDER BY preco DESC LIMIT 10", nativeQuery = true)
 	List<ProdutoEntity> produtosMaisCaros();	
 }

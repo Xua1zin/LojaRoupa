@@ -10,6 +10,6 @@ import com.atividade_roupas.atividade_roupas.entities.ClienteEntity;
 
 @Repository
 public interface ClienteRepository extends JpaRepository<ClienteEntity, Long>{
-	@Query(value = "SELECT * FROM cliente WHERE idade BETWEEN 18 AND 35", nativeQuery = true)
+	@Query(value = "SELECT * FROM tb_cliente WHERE idade BETWEEN 18 AND 35", nativeQuery = true)
 	List<ClienteEntity> entre18e35anos();
 }

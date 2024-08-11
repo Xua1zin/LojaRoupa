@@ -2,6 +2,7 @@ package com.atividade_roupas.atividade_roupas.entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,8 +18,8 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "cliente")
-@Entity(name = "cliente")
+@Entity
+@Table(name = "tb_cliente")
 public class ClienteEntity {
 
 	@Id
@@ -27,9 +28,10 @@ public class ClienteEntity {
 	private String nome;
 	private String email;
 	private String telefone;
-	private int idade;
+	private Integer idade;
 	private String endereco;
-	
+
+	@JsonIgnore
 	@OneToMany(mappedBy = "cliente")
-	private List<VendaEntity> vendas;
+	private List<VendaEntity> venda;
 }

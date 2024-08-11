@@ -47,11 +47,11 @@ public class VendaService {
     }
 
     public VendaEntity save(VendaEntity vendaEntity) {
-        ClienteEntity cliente = clienteRepository.findById(vendaEntity.getCliente.getId());
-        vendaEntity.setCliente(cliente);
+        Optional<ClienteEntity> cliente = clienteRepository.findById(vendaEntity.getCliente().getId());
+        vendaEntity.setCliente(cliente.get());
 
-        FuncionarioEntity funcionario = funcionarioRepository.findById(vendaEntity.getFuncionario().getId());
-        vendaEntity.setFuncionario(funcionario);
+        Optional <FuncionarioEntity> funcionario= funcionarioRepository.findById(vendaEntity.getFuncionario().getId());
+        vendaEntity.setFuncionario(funcionario.get());
 
         double total = 0.0;
         List<ProdutoEntity> produtosEscolhidos = new ArrayList<>();
